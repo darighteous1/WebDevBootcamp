@@ -1,0 +1,20 @@
+ul {
+    color: darkslategrey;
+}
+body {
+    background-color: tomato;
+    color: grey;
+}
+
+li {
+    font-weight: 700;
+}
+
+/* Adjacent Selector */
+input:checked + label{
+    /* In this case + will select all labels that are right after a checked input (on the same level, not nested)  */
+    text-decoration: line-through;
+    font-weight: 100;
+}
+
+
