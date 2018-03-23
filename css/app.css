@@ -1,9 +1,17 @@
 h1 {
     color: purple;
+    border: 2px dashed rgb(255,100,100);
+
 }    
 li {
-    color: orange;
+    color: darkolivegreen;
 }
 h4 {
-    color: green;
+    background: rgb(255,100,100);
+}
+body {
+    background: tomato;
+    /* background: url("../images/wood-grain.jpg");
+    background-repeat: no-repeat;
+    background-size: cover; */
 }
