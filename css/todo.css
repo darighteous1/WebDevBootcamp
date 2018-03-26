@@ -1,10 +1,10 @@
-ul {
+/* ul {
     color: darkslategrey;
-}
-body {
+} */
+/* body {
     background-color: tomato;
     color: grey;
-}
+} */
 
 li {
     font-weight: 700;
@@ -17,4 +17,11 @@ input:checked + label{
     font-weight: 100;
 }
 
+.done {
+    text-decoration: line-through;
+    opacity: 0.5;
+}
 
+.selected {
+    color: green;
+}
