@@ -33,5 +33,9 @@ $("input[type='text']").on("keypress", function(event) {
 });
 
 function createTodoItem(text) {
-    return "<li><span>X</span> " + text + "</li>";
+    return "<li><span><i class='fa fa-trash'></i></span>" + text + "</li>";
 }
+
+$("h1 span").on("click", function(){
+    $("input[type='text']").fadeToggle();
+})
