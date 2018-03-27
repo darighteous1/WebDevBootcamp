@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <script src="assets/js/lib/paper.js/dist/paper-full.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.9/howler.min.js"></script>
+
+    <link rel="stylesheet" href="assets/css/patatapapp.css">
+    <script  type="text/paperscript" canvas="myCanvas" src="assets/js/patatapapp.js"></script>
+    <title>Patatapapp</title>
+
+
+</head>
+
+<body>
+    <script type="text/paperscript" canvas="myCanvas">
+        var circles = [];
+        var keyData = {
+            a: {
+                color: "purple",
+                sound: new Howl({
+                    src: ["assets/sounds/bubbles.mp3"]
+                })
+            },
+            b: {
+                color: "orange",
+                sound: new Howl({
+                    src: ["assets/sounds/clay.mp3"]
+                })
+            },
+            c: {
+                color: "tomato",
+                sound: new Howl({
+                    src: ["assets/sounds/confetti.mp3"]
+                })
+            }
+        }
+        
+        function onKeyDown(event) {
+            if (keyData[event.key]){
+
+                var maxPoint = new Point(view.size.width, view.size.height);
+                var point = maxPoint * Point.random();
+                
+                // When a key is pressed, set the content of the text item:
+                var circle = new Path.Circle(new Point(point), Math.random() * 300);
+    
+                circle.fillColor = keyData[event.key].color;
+                keyData[event.key].sound.play();
+                circles.push(circle);
+            }
+        }
+        
+        function onFrame(event) {
+            // Each frame, change the fill color of the path slightly by
+            // adding 1 to its hue and scaling it down
+            circles.forEach(function(circle){
+                circle.fillColor.hue += 1;
+                circle.scale(0.95);
+
+            });
+        }
+    </script>
+    <canvas id="myCanvas" resize></canvas>
+</body>
+
+</html>
